@@ -1,8 +1,9 @@
 import java.util.concurrent.Flow;
 
 public class Main {
+
     public static void main(String[] args) {
-        Human Maksim = new Human("Максим", 35, "Минск", "Бренд-менеджер" );
+        Human Maksim = new Human("Максим", 35, "Минск", "Бренд-менеджер");
         Human Anna = new Human("Аня", 29, "Москва", "Методист образовательных программ");
         Human Katya = new Human("Катя", 28, "Калининград", "Продакт- менеджер");
         Human Artem = new Human("Артем", 27, "Москва", "Директор по развитию бизнеса");
@@ -26,16 +27,19 @@ public class Main {
         System.out.println(kia.toString());
         System.out.println(hyundai.toString());
 
-        Flowers rose = new Flowers("Роза", "",  "Голландия", 35.59, 2);
-        Flowers chrysanthemum = new Flowers("Хризантема", "",  "",15.00, 5);
+        Flowers rose = new Flowers("Роза", "", "Голландия", 35.59, 2);
+        Flowers chrysanthemum = new Flowers("Хризантема", "", "", 15.00, 5);
         Flowers peony = new Flowers("Пион", "", "Англия", 69.9, 1);
         Flowers gypsophila = new Flowers("Гипсофила", "", "Турция", 19.50, 10);
-        System.out.println( rose.toString());
+        System.out.println(rose.toString());
         System.out.println(chrysanthemum.toString());
-        System.out.println( peony.toString());
+        System.out.println(peony.toString());
         System.out.println(gypsophila.toString());
-
     }
-    public void makeBouquetOfFlowers(int roses, int chrysanthemum, int peonyes, int intgypsophilas) {
-        int totalFlowers = Flowers
+
 }
+
+
+
+
+
