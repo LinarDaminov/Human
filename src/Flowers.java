@@ -1,7 +1,4 @@
-
-
 public class Flowers {
-
     private String name;
     private String color;
     private String country;
@@ -37,11 +34,7 @@ public class Flowers {
         return cost;
     }
 
-    public void setCost(double cost) {
-        this.cost = cost;
-    }
-
-    public int getLifeSpan() {
+       public int getLifeSpan() {
         return lifeSpan;
     }
 
@@ -67,13 +60,13 @@ public class Flowers {
 
         if (lifeSpan <= 0) {
             this.lifeSpan = 3;
-        }
-        this.lifeSpan = lifeSpan;
+        } else {
+        this.lifeSpan = lifeSpan;}
 
     }
     @Override
     public String toString() {
-        return "Цветы: " + name + " цвет " + color + ", Страна: " + country + ", Цена: " + cost + ", Срок стояния: " + lifeSpan + " дней";
+        return "Цветы: " + name + " цвет " + color + ", Страна: " + country + ", Цена: " + cost  + ", Срок стояния: " + lifeSpan + " дней";
     }
 
 

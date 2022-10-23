@@ -8,6 +8,8 @@ public class Human {
         return name;
     }
 
+
+
     public void setName(String name) {
         if (name.isEmpty() || name == null) {
             System.out.println("Информация не указана");

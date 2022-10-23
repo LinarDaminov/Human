@@ -1,16 +1,18 @@
-/*Если не указана модель, марка машины и страна сборки, то значение по умолчанию — default.*/
+import java.time.LocalDate;
+import java.util.Locale;
+
 public class Auto {
-    private String brand;
-    private String model;
-    public double engineVolume;
-     public String color;
-    private int productionYear;
-    private String productionCountry;
-    public String transmission;
-    private String bodyType;
-    public int tegNumber;
-    private int Place;
-     public String summerOrWinterTire;
+    private final String brand;
+    private final String model;
+    private double engineVolume;
+    private String color;
+    private final int productionYear;
+    private final String productionCountry;
+    private String transmission;
+    private final String bodyType;
+    private String regNumber;
+    private int place;
+    public boolean winterTire;
 
     public String getBrand() {
         return brand;
@@ -33,7 +35,14 @@ public class Auto {
     }
 
     public int getPlace() {
-        return Place;
+        return place;
+    }
+    public void setPlace(int place) {
+        if (place <= 0) {
+            this.place = 5;
+        } else {
+            this.place = place;
+        }
     }
 
     public double getEngineVolume() {
@@ -41,8 +50,12 @@ public class Auto {
     }
 
     public void setEngineVolume(double engineVolume) {
-        this.engineVolume = engineVolume;
-    }
+
+        if (engineVolume <= 0) {
+            this.engineVolume = 1.5;
+        } else {
+            this.engineVolume = engineVolume;}
+        }
 
     public String getColor() {
         return color;
@@ -57,26 +70,53 @@ public class Auto {
     }
 
     public void setTransmission(String transmission) {
+        if (transmission.isEmpty() || transmission.isBlank() || transmission == null) {
+            this.transmission = "Ручная КПП";
+        }
         this.transmission = transmission;
     }
 
-    public int getTegNumber() {
-        return tegNumber;
+    public String getTegNumber() {
+        return regNumber;
     }
 
-    public void setTegNumber(int tegNumber) {
-        this.tegNumber = tegNumber;
+    public void setTegNumber(String regNumber) {
+        this.regNumber = regNumber;
     }
 
-    public String getSummerOrWinterTire() {
-        return summerOrWinterTire;
+    public void setWinterTire() {
+        int currentMonth = LocalDate.now().getMonthValue();
+        this.winterTire = currentMonth <= 4 && currentMonth >= 11;
     }
 
-    public void setSummerOrWinterTire(String summerOrWinterTire) {
-        this.summerOrWinterTire = summerOrWinterTire;
+
+
+    private boolean IsRegNumberValid() {
+        if (this.regNumber.length() != 9) {
+            return false;
+        }
+        char[] regNumbersChar = this.regNumber.toCharArray();
+        return isNumberLetter(regNumbersChar[0])
+                && isNumber(regNumbersChar[1])
+                && isNumber(regNumbersChar[2])
+                && isNumber(regNumbersChar[3])
+                && isNumberLetter(regNumbersChar[4])
+                && isNumberLetter(regNumbersChar[5])
+                && isNumber(regNumbersChar[6])
+                && isNumber(regNumbersChar[7])
+                && isNumber(regNumbersChar[8]);
+    }
+    private boolean isNumber(char symbol) {
+        return Character.isDigit(symbol);
     }
 
-    public Auto(String brand, String model, double engineVolume, String color, int productionYear, String productionCountry) {
+    private boolean isNumberLetter(char symbol) {
+        String allowedSymbols = "АВЕКМНОРСТУХ";
+        return allowedSymbols.contains("" + symbol);
+    }
+
+    public Auto(String brand, String model, double engineVolume, String color, int productionYear, String productionCountry, String bodyType) {
+        this.bodyType = bodyType;
         if (brand.isEmpty()) {
             this.brand = "default";
         } else {
@@ -113,5 +153,27 @@ public class Auto {
     public String toString() {
         return "Марка " + brand + ",модель " + model + ",объем двигтеля: " + engineVolume + ",цвет " + color +
                 ",год выпуска: " + productionYear + ",страна изготовления: " + productionCountry;
+    }
+
+    public static class Key {
+        private final boolean remoteEngineStart;
+        private final boolean keyLessAccess;
+
+        public Key(boolean remoteEngineStart, boolean keyLessAccess) {
+            this.remoteEngineStart = remoteEngineStart;
+            this.keyLessAccess = keyLessAccess;
+        }
+    }
+
+    public static class Insurance {
+        private final LocalDate validUntil;
+        private final float cost;
+        private final String number;
+
+        public Insurance(LocalDate validUntil, float cost, String number) {
+            this.validUntil = validUntil != null ? validUntil : LocalDate.now().plusDays(10);
+            this.cost - Math.max(cost, 1f);
+
+        }
     }
 }
