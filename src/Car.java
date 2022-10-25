@@ -1,7 +1,6 @@
 import java.time.LocalDate;
-import java.util.Locale;
 
-public class Auto {
+public class Car {
     private final String brand;
     private final String model;
     private double engineVolume;
@@ -115,7 +114,7 @@ public class Auto {
         return allowedSymbols.contains("" + symbol);
     }
 
-    public Auto(String brand, String model, double engineVolume, String color, int productionYear, String productionCountry, String bodyType) {
+    public Car(String brand, String model, double engineVolume, String color, int productionYear, String productionCountry, String bodyType) {
         this.bodyType = bodyType;
         if (brand.isEmpty()) {
             this.brand = "default";
@@ -165,15 +164,15 @@ public class Auto {
         }
     }
 
-    public static class Insurance {
-        private final LocalDate validUntil;
-        private final float cost;
-        private final String number;
-
-        public Insurance(LocalDate validUntil, float cost, String number) {
-            this.validUntil = validUntil != null ? validUntil : LocalDate.now().plusDays(10);
-            this.cost - Math.max(cost, 1f);
+//    public static class Insurance {
+//        private final LocalDate validUntil;
+//        private final float cost;
+//        private final String number;
+//
+//        public Insurance(LocalDate validUntil, float cost, String number) {
+//            this.validUntil = validUntil != null ? validUntil : LocalDate.now().plusDays(10);
+//            this.cost - Math.max(cost, 1f);
 
         }
-    }
-}
+//    }
+//}

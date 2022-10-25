@@ -1,4 +1,4 @@
-public class Flowers {
+public class Flower {
     private String name;
     private String color;
     private String country;
@@ -42,7 +42,7 @@ public class Flowers {
         this.lifeSpan = lifeSpan;
     }
 
-    public Flowers(String name, String color, String country, double cost, int lifeSpan) {
+    public Flower(String name, String color, String country, double cost, int lifeSpan) {
         this.name = name;
         if (color.isEmpty() || color.isBlank() || color == null) {
             this.color = "белый";
