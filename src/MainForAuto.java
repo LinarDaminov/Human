@@ -19,8 +19,9 @@ public class MainForAuto {
         System.out.println("Марка " + car.getBrand() + ",модель " + car.getModel() + ",объем двигателя: " + car.getEngineVolume() + ",цвет " + car.getColor() +
                 ",год выпуска: " + car.getProductionYear() + ",страна изготовления: " + car.getProductionCountry() + " коробка передач " + car.getTransmission()
                 + " тип кузова " + car.getBodyType() + " рег. номер: " + car.getRegNumber() + " количество мест " + car.getPlace() +
-                " шины: " + car.setWinterTire() + (car.getKey().isKeyLessAccess() ? "безключевой" : "ключевой" )+
-                (car.getKey().isRemoteEngineStart() ? "удаленный" : "локальный" ) + (car.getInsurance()) );
+                " шины: " + (car.setWinterTire() ? " летняя" : "зимняя ") + (car.getKey().isKeyLessAccess() ? " безключевой" : "ключевой ") +
+                (car.getKey().isRemoteEngineStart() ? " удаленный" : "локальный ") + " номер страховки: " + car.getInsurance().getNumber() +
+                " стоимость страховки " + car.getInsurance().getCost() + " срок действия страховки " + car.getInsurance().getValidUntil());
 
 
         }
